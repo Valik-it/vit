@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+	<title>Landing Page</title>
+</head>
+<body>
+	<section class="main">
+		<header>
+			<a href="#"><img src="img/logo.png" class="logo"></a>
+			<div class="toggle"></div>
+			<ul class="navigation">
+				<li><a href="#">Главная</a></li>
+				<li><a href="#">Меню</a></li>
+				<li><a href="#">О нас</a></li>
+				<li><a href="#">Контакт</a></li>
+			</ul>
+		</header>
+		<div class="content">
+			<div class="text">
+				<h2>Вкусно и <span>Точка.</span></h2>
+				<p>«Вкусно — и точка» это ресторан быстрого питания направленный удовлетворить потребность гостей за счёт минимального времени обслуживания и предоставляя только качественную и натуральную продукцию. «Вкусно. Быстро. Доступно.» - так звучит девиз, для посетителей компании. 
+
+</p>
+				<a href="#" class="btn">Заказать сейчас</a>
+			</div>
+			<div class="slider">
+				<div class="slides active">
+					<img src="img/burger.png">
+				</div>
+
+				<div class="slides">
+					<img src="img/bolshoj-snjek-boks.png">
+				</div>
+
+				<div class="slides">
+					<img src="img/zesar.png">
+				</div>
+
+				<div class="slides">
+					<img src="img/kurinye-krylyshki.png">
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<ul class="sci">
+				<li><a href="#"><img src="img/vk.png" width="35px" height="35px"></a></li>
+				<li><a href="#"><img src="img/rtb.png" width="35px" height="35px"></a></li>
+				<li><a href="#"><img src="img/odn.png" width="35px" height="35px"></a></li>
+			</ul>
+			<div class="prevNext">
+				<p>Всегда свежее</p>
+				<span class="prev"><ion-icon name="chevron-back-outline"></ion-icon></span>
+				<span class="next"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+			</div>
+		</div>
+	</section>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script>
+		//toggle
+	  const menutoggle = document.querySelector('.toggle');
+	  const navigation = document.querySelector('.navigation');
+	  menutoggle.onclick = function(){
+	  	menutoggle.classList.toggle('active')
+	  	navigation.classList.toggle('active')
+	  }
+
+
+	  //slider
+      const slides = document.querySelectorAll('.slides');
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+
+      i = 0;
+
+      function ActiveSlide(n){
+      	for(slide of slides)
+      	slide.classList.remove('active');
+        slides[n].classList.add('active');
+      }
+
+      //function for next btn
+      next.addEventListener('click', function(){
+      	if(i == slides.length - 1){
+      	  i = 0;
+      	  ActiveSlide(i);
+      	}
+      	else
+      	{
+      	  i++;
+      	  ActiveSlide(i);
+      	}
+      })
+
+      //function for prev btn
+      prev.addEventListener('click', function(){
+      	if(i == 0){
+      	  i = slides.length - 1;
+      	  ActiveSlide(i);
+      	}
+      	else
+      	{
+      	  i--;
+      	  ActiveSlide(i);
+      	}
+      })
+
+	</script>
+</body>
+</html>
